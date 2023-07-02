@@ -10,6 +10,8 @@ public class Ingeniero : MonoBehaviour
     public int costoPiedra = 6;
     public int costoHierro = 5;
 
+    private bool puedeComprar = true; 
+    private float tiempoUltimaCompra;
 
     void Start()
     {
@@ -28,9 +30,10 @@ public class Ingeniero : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if (Input.GetKeyDown(KeyCode.F) && PuedeComprarBallesta())
+            if (Input.GetKeyDown(KeyCode.F) && puedeComprar && PuedeComprarBallesta())
             {
                 ComprarBallesta();
+                StartCoroutine(EsperarTiempoCompra());
             }
         }
     }
@@ -47,5 +50,14 @@ public class Ingeniero : MonoBehaviour
         inventario.cantPiedra -= costoPiedra;
         inventario.cantMadera -= costoMadera;
         Debug.Log("Has comprado una ballesta.");
+        puedeComprar = false; 
+        tiempoUltimaCompra = Time.time; 
+    }
+
+    IEnumerator EsperarTiempoCompra()
+    {
+        yield return new WaitForSeconds(3f);
+
+        puedeComprar = true;
     }
 }

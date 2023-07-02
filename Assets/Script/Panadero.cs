@@ -15,7 +15,7 @@ public class Panadero : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if (Input.GetKeyDown(KeyCode.F) && PuedeComprarPan())
+            if (Input.GetKey(KeyCode.F) && PuedeComprarPan())
             {
                 ComprarPan();
             }

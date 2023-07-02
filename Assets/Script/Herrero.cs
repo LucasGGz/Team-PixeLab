@@ -4,15 +4,15 @@ using UnityEngine;
 public class Herrero : MonoBehaviour
 {
     public int limiteMejoras = 5;
-    public float tiempoEspera = 5f;
+    public float tiempoEspera = 3f;
     public float incrementoCosto = 1.5f;
 
     private Inventario inventario;
-   // private int cantMejoras = 0;
     private int costoHierro = 3;
     private int costoPiedra = 4;
     private int costoMadera = 6;
-    private bool esperandoCompra = false;
+    private bool puedeComprar = true; 
+    private float tiempoUltimaCompra;
 
     private void Start()
     {
@@ -23,9 +23,10 @@ public class Herrero : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if (Input.GetKeyDown(KeyCode.F) && !esperandoCompra && PuedeComprarMejora())
+            if (Input.GetKeyDown(KeyCode.F) && puedeComprar && PuedeComprarMejora())
             {
                 ComprarMejora();
+                StartCoroutine(EsperarTiempoCompra());
             }
         }
     }
@@ -37,10 +38,6 @@ public class Herrero : MonoBehaviour
 
     void ComprarMejora()
     {
-        esperandoCompra = true;
-
-        StartCoroutine(EsperarTiempo());
-
         inventario.cantHierro -= costoHierro;
         inventario.cantPiedra -= costoPiedra;
         inventario.cantMadera -= costoMadera;
@@ -50,12 +47,14 @@ public class Herrero : MonoBehaviour
         costoMadera = Mathf.RoundToInt(costoMadera * incrementoCosto);
 
         Debug.Log("Has comprado una mejora para armas.");
-
+        puedeComprar = false;
+        tiempoUltimaCompra = Time.time;
     }
 
-    IEnumerator EsperarTiempo()
+    IEnumerator EsperarTiempoCompra()
     {
         yield return new WaitForSeconds(tiempoEspera);
-        esperandoCompra = false;
+
+        puedeComprar = true; // Activar la posibilidad de comprar nuevamente
     }
 }
