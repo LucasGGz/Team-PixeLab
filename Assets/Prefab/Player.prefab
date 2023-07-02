@@ -1151,6 +1151,37 @@ Transform:
   m_Father: {fileID: 7463892009079840086}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4462818521466481756
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2490481279114936805}
+  m_Layer: 0
+  m_Name: Ballesta
+  m_TagString: Untagged
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2490481279114936805
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4462818521466481756}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.659, z: 1.892}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9098966113445670055}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4617803095379478330
 GameObject:
   m_ObjectHideFlags: 0
@@ -1869,6 +1900,7 @@ GameObject:
   - component: {fileID: 7041040748475117805}
   - component: {fileID: 2775946022070070823}
   - component: {fileID: 4649171219402568698}
+  - component: {fileID: 8530155527052326573}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1890,8 +1922,9 @@ Transform:
   m_Children:
   - {fileID: 8129347161270398065}
   - {fileID: 6699321759599969375}
+  - {fileID: 2490481279114936805}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &855254098103665928
 Animator:
@@ -1973,6 +2006,8 @@ MonoBehaviour:
   danioEnemigo: 0
   danio: 0
   aliadoSeguir: 0
+  Ballesta: {fileID: 2275250163320255780, guid: df86095ae901ddb4086b2291a4f42e07, type: 3}
+  puntoCentral: {fileID: 2490481279114936805}
 --- !u!65 &7041040748475117805
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2024,6 +2059,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arma: {fileID: 2119107123315200879}
   arma1BoxCollider: {fileID: 5842990975117592435}
+--- !u!114 &8530155527052326573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7963500695928052072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cad645b18e03c6d48ab1be2d02b6c411, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cantTrigo: 0
+  cantMadera: 0
+  cantHierro: 0
+  cantPiedra: 0
+  cantBallestas: 0
+  BallestasDes: 0
+  cantMejora: 0
+  cantPan: 0
+  mRealizada: 0
+  Trigo: {fileID: 0}
+  Madera: {fileID: 0}
+  Hierro: {fileID: 0}
+  Piedra: {fileID: 0}
+  Ballesta: {fileID: 0}
+  BallestasDesplegadas: {fileID: 0}
+  Mejora: {fileID: 0}
+  Pan: {fileID: 0}
+  MejoraRealizada: {fileID: 0}
 --- !u!1 &7977503684017738296
 GameObject:
   m_ObjectHideFlags: 0

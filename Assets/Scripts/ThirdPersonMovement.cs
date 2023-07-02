@@ -53,6 +53,10 @@ public class ThirdPersonMovement : MonoBehaviour
 
     public bool aliadoSeguir;
 
+    [SerializeField]
+    private GameObject Ballesta;
+
+    public Transform puntoCentral;
 
     // Start is called before the first frame update
     void Start()
@@ -104,7 +108,11 @@ public class ThirdPersonMovement : MonoBehaviour
                 iniciarCombo();
             }
         }*/
-        
+
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            Instantiate(Ballesta, puntoCentral.transform.position, puntoCentral.transform.rotation);
+        }
     }
 
     public void MovePlayer()
