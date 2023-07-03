@@ -9,7 +9,7 @@ public class InvTrigo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("InvocarTrigo",0,5);
+        InvokeRepeating("InvocarTrigo",0,1);
         
     }
 

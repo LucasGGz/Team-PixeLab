@@ -9,7 +9,7 @@ public class InvHierro : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("InvocarHierro",0,2);
+        InvokeRepeating("InvocarHierro",0,3);
         
     }
 

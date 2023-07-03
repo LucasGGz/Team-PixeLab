@@ -9,7 +9,7 @@ public class InvPiedra : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("InvocarPiedra",0,5);
+        InvokeRepeating("InvocarPiedra",0,2);
         
     }
 
