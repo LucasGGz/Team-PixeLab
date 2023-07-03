@@ -358,9 +358,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4177035945487941506}
+  - component: {fileID: 5739615236386262589}
   m_Layer: 0
   m_Name: Axe
-  m_TagString: Untagged
+  m_TagString: ataqueEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -380,6 +381,27 @@ Transform:
   m_Father: {fileID: 5701671670357636725}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5739615236386262589
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4100475233078849433}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 15.033086, y: 111.94636, z: 74.47903}
+  m_Center: {x: -0.6235017, y: 62.12376, z: 22.02322}
 --- !u!1 &4900114598336551252
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,8 +719,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objetivo: {fileID: 0}
   animacionE: {fileID: 0}
-  stopDistanceEnemy: 3
+  stopDistanceEnemy: 2.9
   rangoDeteccion: 10
+  arma: {fileID: 4100475233078849433}
+  armaCollider: {fileID: 5739615236386262589}
 --- !u!54 &6097505060772252066
 Rigidbody:
   m_ObjectHideFlags: 0
