@@ -15,7 +15,13 @@ public class Dashing : MonoBehaviour
     private CharacterController characterController;
     private ThirdPersonMovement moveScript;
     public GameObject efectoPolvo;
+    private SoundManager soundManager;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        soundManager = FindObjectOfType<SoundManager>();
+    }
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -54,6 +60,7 @@ public class Dashing : MonoBehaviour
                     //dashDirection = new Vector3(horizontalInput, 0f, verticalInput).normalized;
                     dashDirection = moveScript.moveDir;
                     StartDash();
+                    soundManager.SeleccionAudio(2, 1f);
                 }
             }
         }
@@ -61,6 +68,7 @@ public class Dashing : MonoBehaviour
     private void StartDash()
     {
         // Iniciar el dash
+       
         isDashing = true;
         dashCooldownTimer = 0f;
         moveScript.animacion.SetBool("dashing", true);

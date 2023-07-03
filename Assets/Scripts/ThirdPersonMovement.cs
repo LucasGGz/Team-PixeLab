@@ -59,8 +59,14 @@ public class ThirdPersonMovement : MonoBehaviour
     public Transform puntoCentral;
 
     private Inventario invetario;
+    private SoundManager soundManager;
 
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        soundManager = FindObjectOfType<SoundManager>();
+    }
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -73,7 +79,7 @@ public class ThirdPersonMovement : MonoBehaviour
         invetario = GetComponent<Inventario>();
         barraVida.vidaMax = hpPlayer;               //asigna el hp del player a una variable del script BarraVidaBehaviour
         barraVida.vidaActual = hpPlayer;            //asigna el hp del player a una variable del script BarraVidaBehaviour
-
+        soundManager.SeleccionAudio(7, 0.4f);
     }
 
     void FixedUpdate() //Las ejecuciones por segundo del fixedUpdate es fija, mientras que en el Update es variable
@@ -418,6 +424,35 @@ public class ThirdPersonMovement : MonoBehaviour
 
         }*/
 
+    }
+    private void salto()
+    {
+        soundManager.SeleccionAudio(1, 1f);
+    }
+
+    private void ataque()
+    {
+        soundManager.SeleccionAudio(3, 1f);
+    }
+    private void orden()
+    {
+        soundManager.SeleccionAudio(6, 0.5f);
+    }
+    private void muerte()
+    {
+        soundManager.SeleccionAudio(8, 0.3f);
+    }
+    private void powerUp()
+    {
+        soundManager.SeleccionAudio(10, 0.6f);
+    }
+    private void vida()
+    {
+        soundManager.SeleccionAudio(8, 0.5f);
+    }
+    private void crear()
+    {
+        soundManager.SeleccionAudio(13, 0.7f);
     }
 
     private void OnAnimatorMove()

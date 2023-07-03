@@ -29,7 +29,14 @@ public class Aliado : MonoBehaviour
     //public int danio;
 
     private bool muerto;
+    private SoundManager soundManager;
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        soundManager = FindObjectOfType<SoundManager>();
+    }
+
     void Start()
     {
         animacionA = GetComponent<Animator>();
@@ -178,5 +185,14 @@ public class Aliado : MonoBehaviour
     public void DestruirAliado()
     {
         Destroy(gameObject);
+    }
+
+    public void ataqueAliado()
+    {
+        soundManager.SeleccionAudio(14, 0.6f);
+    }
+    public void muerteAliado()
+    {
+        soundManager.SeleccionAudio(15, 0.6f);
     }
 }

@@ -27,13 +27,14 @@ public class navMeshControler : MonoBehaviour
 
     public GameObject arma;
     public BoxCollider armaCollider;
+    private SoundManager soundManager;
     // Start is called before the first frame update
     void Start()
     {
         objetivo = GameObject.Find("Objetivo").GetComponent<Transform>();
         agente = GetComponent<NavMeshAgent>();
         animacionE = GetComponent<Animator>();
-
+        soundManager = FindObjectOfType<SoundManager>();
         //StartCoroutine(MarchaAtaque());
     }
 
@@ -159,5 +160,13 @@ public class navMeshControler : MonoBehaviour
         //    punioBoxCollider.enabled = true;
         //}
 
+    }
+    public void ataqueOgro()
+    {
+        soundManager.SeleccionAudio(9, 1f);
+    }
+    public void muerteOgro()
+    {
+        soundManager.SeleccionAudio(12, 0.4f);
     }
 }
