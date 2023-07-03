@@ -8,9 +8,9 @@ public class GeneradorEnemigos : MonoBehaviour
     public int cantidadEnemigosHorda1 = 10;
     public int cantidadEnemigosHorda2 = 15;
     public int cantidadEnemigosHorda3 = 20;
-    public float tiempoHorda1 = 10f;
-    public float tiempoHorda2 = 10f;
-    public float tiempoHorda3 = 10f;
+    public float tiempoHorda1 = 30f;
+    public float tiempoHorda2 = 30f;
+    public float tiempoHorda3 = 30f;
 
     public float tiempoRestante;
     // Start is called before the first frame update

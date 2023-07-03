@@ -2297,15 +2297,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8913188432035065447, guid: 00e6e78bd5c908140bdb6e25cbf72910, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.1350594
+      value: 0.13505942
       objectReference: {fileID: 0}
     - target: {fileID: 8913188432035065447, guid: 00e6e78bd5c908140bdb6e25cbf72910, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000001476463
+      value: 8.719026e-16
       objectReference: {fileID: 0}
     - target: {fileID: 8913188432035065447, guid: 00e6e78bd5c908140bdb6e25cbf72910, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000020125421
+      value: -1.7869098e-17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7943,6 +7943,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7723824253235914284, guid: 8469129e3bc26964191b7a0b79d70b0a, type: 3}
+      propertyPath: tiempoHorda1
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: -7723824253235914284, guid: 8469129e3bc26964191b7a0b79d70b0a, type: 3}
+      propertyPath: tiempoHorda2
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: -7723824253235914284, guid: 8469129e3bc26964191b7a0b79d70b0a, type: 3}
+      propertyPath: tiempoHorda3
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: -7723824253235914284, guid: 8469129e3bc26964191b7a0b79d70b0a, type: 3}
       propertyPath: enemigoPrefab
       value: 

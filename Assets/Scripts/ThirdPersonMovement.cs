@@ -65,6 +65,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private void Awake()
     {
+        hpPlayer = 50;
         soundManager = FindObjectOfType<SoundManager>();
     }
     void Start()
@@ -224,12 +225,15 @@ public class ThirdPersonMovement : MonoBehaviour
             atacando = true;
             invetario.cantMejora--;
             invetario.mRealizada++;
+            
             Instantiate(efectoAura, controller.transform.position, controller.transform.rotation);
         }else if (Input.GetKeyDown(KeyCode.Q) && !isJump && invetario.cantPan >=1)
         {
             animacion.SetTrigger("curar");
             atacando = true;
             invetario.cantPan--;
+            hpPlayer = 50;
+            barraVida.vidaActual = hpPlayer;
             Instantiate(efectoCura, controller.transform.position, controller.transform.rotation);
         }
         else if (Input.GetKeyDown(KeyCode.P) && !isJump)
