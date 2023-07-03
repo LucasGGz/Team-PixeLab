@@ -54,6 +54,9 @@ public class ThirdPersonMovement : MonoBehaviour
     public bool aliadoSeguir;
 
     private bool isJump=false;
+    public GameObject Ballesta;
+    public Transform puntoCentral;
+
 
 
     // Start is called before the first frame update
@@ -61,7 +64,7 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         animacion = GetComponent<Animator>();       //le asigna el componente Animator del player
-        //Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
         cantidadClick = 0;
         puedoDarClick = true;
         muerto = false;
@@ -106,7 +109,7 @@ public class ThirdPersonMovement : MonoBehaviour
                 iniciarCombo();
             }
         }*/
-        
+
     }
 
     public void MovePlayer()
@@ -231,6 +234,10 @@ public class ThirdPersonMovement : MonoBehaviour
             {
                 aliadoSeguir = true;
             }
+        }
+        if (Input.GetKeyDown(KeyCode.U) && !isJump)
+        {
+            Instantiate(Ballesta, puntoCentral.transform.position, puntoCentral.transform.rotation);
         }
         if (conArma && floorDetected)
         {
