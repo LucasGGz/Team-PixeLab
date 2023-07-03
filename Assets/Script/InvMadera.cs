@@ -9,7 +9,7 @@ public class InvMadera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("InvocarMadera",0,5);
+        InvokeRepeating("InvocarMadera",0,1);
         
     }
 
