@@ -4,53 +4,44 @@ using UnityEngine;
 
 public class SpawnEnemigos : MonoBehaviour
 {
-    // private TimerScript numeroOrda;
-    // private TimerScript tiempoOrda1;
-    // private TimerScript tiempoOrda2;
-    // private TimerScript tiempoOrda3;
-    // private bool estadoOrda;
+    public GameObject enemigoInst;
+    public TimerScript timer;
+    public bool estadoOrda;
+    public float tiempoOrda1;
+    public float tiempoOrda2;
+    public float tiempoOrda3;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        // numeroOrda = TimerScript.orda;
-        // tiempoOrda1 = TimerScript.timerHorda1;
-        // tiempoOrda2 = TimerScript.timerHorda2;
-        // tiempoOrda3 = TimerScript.timerHorda3;
+        timer = FindObjectOfType<TimerScript>();
+        tiempoOrda2 = timer.timerHorda2;
+        tiempoOrda3 = timer.timerHorda3;
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        seleccionarOrda();
     }
-    // private void seleccionarOrda(){
+    public void seleccionarOrda(){
 
-    //     switch(orda) {
-    // case 1:
-    //     if(tiempoOrda1<0){
-    //         Debug.Log("la orda" + numeroOrda  +"se invoco");
-    //         numeroOrda = 2;
-    //     }
-    //      break;
-    // case 2:
-    //     if(tiempoOrda2<0){
-    //         numeroOrda = 3;
-    //         Debug.Log("la orda" + numeroOrda  +"se invoco");
-    //     }
-    //      break;
-    // case 3:
-    //     if(tiempoOrda3<0){
-
-    //         Debug.Log("la orda" + numeroOrda  +"se invoco");
-    //         numeroOrda = 4;
-    //     }
-    //      break;
-    //     default:
-    //     Debug.Log("Fin de las Hordas");
-    //     break;
-    //     }
-    // }
+        switch(timer.orda) {
+    case 1:
+        Instantiate(enemigoInst,transform.position,transform.rotation);
+            Debug.Log("la orda" + timer.orda  +"se invoco");
+         break;
+    case 2:
+            Debug.Log("la orda" + timer.orda  +"se invoco");
+         break;
+    case 3:
+            Debug.Log("la orda" + timer.orda  +"se invoco");
+         break;
+        default:
+        Debug.Log("Fin de las Hordas");
+        break;
+        }
+    }
 }
