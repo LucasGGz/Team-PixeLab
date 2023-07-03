@@ -13,6 +13,7 @@ public class navMeshControler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        objetivo = GameObject.Find("Objetivo").GetComponent<Transform>();
         agente = GetComponent<NavMeshAgent>();
         //StartCoroutine(MarchaAtaque());
     }

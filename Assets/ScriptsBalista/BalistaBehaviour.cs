@@ -50,7 +50,7 @@ public class BalistaBehaviour : MonoBehaviour
             
         }
 
-        randomTime = Random.Range(1, 3);
+        randomTime = Random.Range(1, 2);
 
     }
 }

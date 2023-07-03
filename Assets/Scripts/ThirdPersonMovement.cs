@@ -91,7 +91,7 @@ public class ThirdPersonMovement : MonoBehaviour
                 MovePlayer();//el player solo se puede mover si no esta muerto y si no se esta atacando
                 
             }
-            Debug.Log("Saltando: "+isJump);
+            // Debug.Log("Saltando: "+isJump);
             Atacar();
         }
         /*if (conArma && floorDetected)
@@ -220,7 +220,7 @@ public class ThirdPersonMovement : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.P) && !isJump)
         {
-            Debug.Log(isJump);
+            // Debug.Log(isJump);
             animacion.SetTrigger("darOrden");
             atacando = true;
             if (aliadoSeguir)

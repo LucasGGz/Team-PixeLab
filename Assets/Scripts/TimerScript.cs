@@ -9,7 +9,7 @@ public class TimerScript : MonoBehaviour
     public float timerHorda2 = 0;
     public float timerHorda3 = 0;
     public float orda = 0;
-    private float timer = 0;
+    public float timer = 0;
 
     public Text textoTimer;
 

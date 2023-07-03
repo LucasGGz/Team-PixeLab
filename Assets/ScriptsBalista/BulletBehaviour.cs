@@ -15,7 +15,7 @@ public class BulletBehaviour : MonoBehaviour
     void Update()
     {
         transform.Translate(0, 0, speed * Time.deltaTime);
-        Destroy(this.gameObject, 2.0f);
+        Destroy(this.gameObject, 20f);
     }
 
      /*private void OnCollisionEnter(Collision collision)
