@@ -696,6 +696,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objetivo: {fileID: 0}
+  animacionE: {fileID: 0}
+  stopDistanceEnemy: 3
+  rangoDeteccion: 10
 --- !u!54 &6097505060772252066
 Rigidbody:
   m_ObjectHideFlags: 0

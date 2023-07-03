@@ -36,6 +36,11 @@ public class Aliado : MonoBehaviour
             seguirPlayer();
         }
 
+        if (!playerScript.aliadoSeguir)
+        {
+            correr = Vector3.zero;
+        }
+
         buscarEnemigos();
         animacionA.SetFloat("AliadoWalkVelocity", correr.magnitude * speedAliado);
     }

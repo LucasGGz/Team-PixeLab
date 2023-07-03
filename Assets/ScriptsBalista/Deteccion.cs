@@ -11,9 +11,9 @@ public class Deteccion : MonoBehaviour
     public Transform Enemigo;
     private GameObject objetivoDetectado;
     public BalistaBehaviour balistaBehaviour;
-    private bool estaDetectando = false;
+    //private bool estaDetectando = false;
     private bool one;
-    private Transform puntoMedio;
+    //private Transform puntoMedio;
     private Vector3 mirar;
     private float ejeY=1.5F;
     void Start()

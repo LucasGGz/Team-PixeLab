@@ -108,9 +108,10 @@ GameObject:
   - component: {fileID: 4123761059727309628}
   - component: {fileID: 2080995338420601027}
   - component: {fileID: 7931785582127579305}
+  - component: {fileID: 43865882679885609}
   m_Layer: 0
   m_Name: Aliado
-  m_TagString: aliado
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -223,6 +224,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &43865882679885609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325552057728736278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78db02bee50ac0e4f8f4aee01b2b4ad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arma: {fileID: 5601778675313553820}
+  armaBoxCollider: {fileID: 4622948137112367117}
 --- !u!1 &1775756976945640529
 GameObject:
   m_ObjectHideFlags: 0
@@ -747,6 +762,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3807484699006923488}
+  - component: {fileID: 4929214735688379210}
+  - component: {fileID: 4622948137112367117}
   m_Layer: 0
   m_Name: Spear
   m_TagString: Untagged
@@ -769,6 +786,39 @@ Transform:
   m_Father: {fileID: 6982961132834164319}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4929214735688379210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5601778675313553820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6072db747c0bb8841a8ca08e14524013, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &4622948137112367117
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5601778675313553820}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 24.157192, y: 90.51969, z: 17.785944}
+  m_Center: {x: -0.5933418, y: 157.45476, z: 0.5155562}
 --- !u!1 &5978458105816929469
 GameObject:
   m_ObjectHideFlags: 0
