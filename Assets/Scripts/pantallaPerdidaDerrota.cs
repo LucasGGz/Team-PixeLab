@@ -9,6 +9,7 @@ public class pantallaPerdidaDerrota : MonoBehaviour
     public ThirdPersonMovement script;
     public LayerMask targetLayer;
     public objetivoBeahaviour objetivoScript;
+    private SoundManager soundManager;
     
     //public bool muerteJugador;
 
@@ -17,6 +18,10 @@ public class pantallaPerdidaDerrota : MonoBehaviour
 
         DesactivarElemento();
 
+
+    }
+    void Awake(){
+        soundManager = FindObjectOfType<SoundManager>();
     }
     void Update()
     {
@@ -25,9 +30,11 @@ public class pantallaPerdidaDerrota : MonoBehaviour
         if(script.muerto||objetivoScript.perdio){
             ActivarElemento();
             textoVictoriaDerrota.text = "PERDISTE";
+            soundManager.SeleccionAudio(17,0.6f);
         }else if(elementCount<1&&script.muerto){
             ActivarElemento();
             textoVictoriaDerrota.text = "VICTORIA";
+            soundManager.SeleccionAudio(17,0.6f);
         }else{
             textoVictoriaDerrota.text = "  ";
         }
