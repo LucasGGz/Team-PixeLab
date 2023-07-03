@@ -13,6 +13,9 @@ public class Deteccion : MonoBehaviour
     public BalistaBehaviour balistaBehaviour;
     private bool estaDetectando = false;
     private bool one;
+    private Transform puntoMedio;
+    private Vector3 mirar;
+    private float ejeY=1.5F;
     void Start()
     {
         one = true;
@@ -20,6 +23,7 @@ public class Deteccion : MonoBehaviour
 
     void Update()
     {
+        mirar = new Vector3(0, ejeY, 0);
         estarAlerta = Physics.CheckSphere(transform.position, rangoAlerta2, capaEnemigo);
         if (estarAlerta)
         {
@@ -53,7 +57,7 @@ public class Deteccion : MonoBehaviour
     {
         if (objetivoDetectado != null)
         {
-            transform.LookAt(objetivoDetectado.transform);
+            transform.LookAt(objetivoDetectado.transform.position + mirar);
         }
     }
 

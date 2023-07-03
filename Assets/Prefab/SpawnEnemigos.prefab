@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2828338930216284535}
   - component: {fileID: 5275144614806324041}
   - component: {fileID: 6704185912815092473}
-  - component: {fileID: 2593996851294059169}
+  - component: {fileID: -7723824253235914284}
   m_Layer: 0
   m_Name: SpawnEnemigos
   m_TagString: Untagged
@@ -106,7 +106,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2593996851294059169
+--- !u!114 &-7723824253235914284
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,9 +115,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6243676539911650325}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72d46546deb1eed40aba8e01c1e6a344, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a20335bc53064648899f0e86345b039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemigoInst: {fileID: 6737266507893232249, guid: 3cda706d94d24ad40b725b73dd77d00b, type: 3}
-  numeroOrda: {fileID: 0}
-  estadoOrda: 0
+  enemigoPrefab: {fileID: 6737266507893232249, guid: 3cda706d94d24ad40b725b73dd77d00b, type: 3}
+  cantidadEnemigosHorda1: 10
+  cantidadEnemigosHorda2: 15
+  cantidadEnemigosHorda3: 20
+  tiempoHorda1: 10
+  tiempoHorda2: 20
+  tiempoHorda3: 30
