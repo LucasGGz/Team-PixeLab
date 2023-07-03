@@ -33,7 +33,7 @@ public class ThirdPersonMovement : MonoBehaviour
     public float factor;
     public Vector3 originOffset;
 
-    private bool muerto;
+    public bool muerto;
     private bool atacando;
     private bool floorDetected = false;
     public bool conArma;
