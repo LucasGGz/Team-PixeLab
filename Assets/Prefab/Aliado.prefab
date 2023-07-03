@@ -131,7 +131,7 @@ Transform:
   - {fileID: 6982961132834164319}
   - {fileID: 2540109838221916014}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &2737328971558778235
 Animator:
@@ -194,7 +194,7 @@ MonoBehaviour:
   speedAliado: 4
   animacionA: {fileID: 0}
   stopDistanceEnemy: 3
-  rangoDeteccion: 5
+  rangoDeteccion: 20
   playerScript: {fileID: 0}
 --- !u!54 &7931785582127579305
 Rigidbody:

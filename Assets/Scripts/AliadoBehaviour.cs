@@ -47,17 +47,17 @@ public class Aliado : MonoBehaviour
             // Calcula la distancia entre los dos objetos
             float distance = Vector3.Distance(transform.position, playerFollow.position);
 
-            // Si la distancia es mayor que la distancia mínima, mueve el objeto hacia el objeto a seguir
+            // Si la distancia es mayor que la distancia mï¿½nima, mueve el objeto hacia el objeto a seguir
             if (distance > stopDistance)
             {
                 Vector3 direccion = (playerFollow.position - transform.position).normalized;
                 transform.position += direccion * speedAliado * Time.deltaTime;
                 correr = direccion;
-                // Calcula la rotación sin la rotación en el eje X
+                // Calcula la rotaciï¿½n sin la rotaciï¿½n en el eje X
                 Quaternion targetRotation = Quaternion.LookRotation(direccion);
                 targetRotation.eulerAngles = new Vector3(0, targetRotation.eulerAngles.y, 0);
 
-                // Aplica la rotación al objeto
+                // Aplica la rotaciï¿½n al objeto
                 transform.rotation = targetRotation;
             }
             else
@@ -96,24 +96,24 @@ public class Aliado : MonoBehaviour
                 //atacarEnemigo();
             }
             transform.LookAt(objetivo.transform);
-            /*/ Calcula la rotación sin la rotación en el eje X
+            /*/ Calcula la rotaciï¿½n sin la rotaciï¿½n en el eje X
             Quaternion targetRotation = Quaternion.LookRotation(direccionEnemy);
             targetRotation.eulerAngles = new Vector3(0, targetRotation.eulerAngles.y, 0);
 
-            // Aplica la rotación al objeto
+            // Aplica la rotaciï¿½n al objeto
             transform.rotation = targetRotation;*/
             //animacionA.SetFloat("AliadoWalkVelocity", correr.magnitude * speedAliado);
 
-            // Aquí puedes añadir tu lógica de ataque al objetivo
+            // Aquï¿½ puedes aï¿½adir tu lï¿½gica de ataque al objetivo
             // ...
 
-            return; // Salir de la función para evitar la detección de nuevos objetivos
+            return; // Salir de la funciï¿½n para evitar la detecciï¿½n de nuevos objetivos
         }
-        // Buscar los objetos con el tag "Enemy" dentro del rango de detección
+        // Buscar los objetos con el tag "Enemy" dentro del rango de detecciï¿½n
         Collider[] colliders = Physics.OverlapSphere(transform.position, rangoDeteccion);
         foreach (Collider collider in colliders)
         {
-            if (collider.CompareTag("Enemy"))
+            if (collider.CompareTag("Enemigo"))
             {
                 enemigoDetectado = true;
                 // Establecer el primer objeto con el tag "Enemy" como objetivo
