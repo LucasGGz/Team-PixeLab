@@ -53,10 +53,8 @@ public class ThirdPersonMovement : MonoBehaviour
 
     public bool aliadoSeguir;
 
-    [SerializeField]
-    private GameObject Ballesta;
+    private bool isJump=false;
 
-    public Transform puntoCentral;
 
     // Start is called before the first frame update
     void Start()
@@ -93,8 +91,8 @@ public class ThirdPersonMovement : MonoBehaviour
                 MovePlayer();//el player solo se puede mover si no esta muerto y si no se esta atacando
                 
             }
-
-        Atacar();
+            Debug.Log("Saltando: "+isJump);
+            Atacar();
         }
         /*if (conArma && floorDetected)
         {
@@ -108,11 +106,7 @@ public class ThirdPersonMovement : MonoBehaviour
                 iniciarCombo();
             }
         }*/
-
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            Instantiate(Ballesta, puntoCentral.transform.position, puntoCentral.transform.rotation);
-        }
+        
     }
 
     public void MovePlayer()
@@ -144,11 +138,13 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             animacion.SetBool("onFloor", true);
             floorDetected = true;
+            isJump = false;
         }
         else
         {
             animacion.SetBool("onFloor", false);
             floorDetected = false;
+            isJump = true;
         }
 
         //controller.Move(movePlayer.normalized * Time.deltaTime);
@@ -203,6 +199,7 @@ public class ThirdPersonMovement : MonoBehaviour
         //isJump = Input.GetButtonDown("Jump");
         if (/*controller.isGrounded*/floorDetected && Input.GetButtonDown("Jump"))
         {
+            isJump = true;
             fallVelocity = jumpForce;
             movePlayer.y = fallVelocity;
             animacion.SetTrigger("Jump");
@@ -210,19 +207,20 @@ public class ThirdPersonMovement : MonoBehaviour
     }
     public void Atacar()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && !isJump)
         {
             animacion.SetTrigger("powerUp");
             atacando = true;
             Instantiate(efectoAura, controller.transform.position, controller.transform.rotation);
-        }else if (Input.GetKeyDown(KeyCode.Q))
+        }else if (Input.GetKeyDown(KeyCode.Q) && !isJump)
         {
             animacion.SetTrigger("curar");
             atacando = true;
             Instantiate(efectoCura, controller.transform.position, controller.transform.rotation);
         }
-        else if (Input.GetKeyDown(KeyCode.P))
+        else if (Input.GetKeyDown(KeyCode.P) && !isJump)
         {
+            Debug.Log(isJump);
             animacion.SetTrigger("darOrden");
             atacando = true;
             if (aliadoSeguir)
@@ -255,23 +253,6 @@ public class ThirdPersonMovement : MonoBehaviour
             //    iniciarCombo();
             //}
         }
-        //se puede atacar con la tecla correspondiente sólo si se detecta el suelo y si no esta atacando
-        /*if (Input.GetKeyDown(KeyCode.E) && floorDetected && !atacando)
-        {
-            //hace una animacion diferente dependiendo si tiene equipado un arma
-            if (conArma)
-            {
-                animacion.SetTrigger("ataque");
-                atacando = true;
-                //SoundManager.SeleccionAudio(1, 0.05f);
-            }
-            //else
-            //{
-                //animacion.SetTrigger("golpe1");
-                //atacando = true;
-                //SoundManager.SeleccionAudio(1, 0.05f);
-            //}
-        }*/
     }
 
     public void iniciarCombo()

@@ -118,4 +118,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2a0f5faba6142b43a0e7cd5718c08f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventario: {fileID: 6970409396137001042, guid: 387d821225561924d92e1a3ebb16d11d, type: 3}
+  inventario: {fileID: 8530155527052326573, guid: 02182142b7176f2458a8c4ba73424bf8, type: 3}
