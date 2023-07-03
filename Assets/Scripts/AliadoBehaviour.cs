@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 //using UnityEngine.InputSystem;
 
 public class Aliado : MonoBehaviour
 {
+    private NavMeshAgent agenteA;
     public Transform playerFollow;
     public float stopDistance;
     public float speedAliado;
@@ -43,28 +45,48 @@ public class Aliado : MonoBehaviour
         muerto = false;
         barraVida.vidaMax = hpAliado;               //asigna el hp del player a una variable del script BarraVidaBehaviour
         barraVida.vidaActual = hpAliado;
+        agenteA = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!muerto)
-        {
-            if (!enemigoDetectado && playerScript.aliadoSeguir)
-            {
-                seguirPlayer();
-            }
+        //if (!muerto)
+        //{
+        //    if (!enemigoDetectado && playerScript.aliadoSeguir)
+        //    {
+        //        seguirPlayer();
+        //    }
 
-            if (!playerScript.aliadoSeguir)
-            {
-                correr = Vector3.zero;
-            }
+        //    if (!playerScript.aliadoSeguir)
+        //    {
+        //        correr = Vector3.zero;
+        //    }
+
+        //    buscarEnemigos();
+        //    animacionA.SetFloat("AliadoWalkVelocity", correr.magnitude * speedAliado);
+        //}
+        if (!enemigoDetectado && playerScript.aliadoSeguir)
+        {
+            seguirPlayer();
+        }
+        if (!playerScript.aliadoSeguir)
+        {
+            agenteA.destination = transform.position;
+            animacionA.SetFloat("AliadoWalkVelocity", 0);
+        }
 
             buscarEnemigos();
-            animacionA.SetFloat("AliadoWalkVelocity", correr.magnitude * speedAliado);
-        }
-        
-       
+
+        //animacionA.SetFloat("AliadoWalkVelocity", agenteA.speed);
+
+
+    }
+    public void marchar()
+    {
+        //if(!enBatalla){
+        agenteA.destination = playerFollow.position;
+        //}
     }
 
     public void seguirPlayer()
@@ -86,9 +108,14 @@ public class Aliado : MonoBehaviour
 
                 // Aplica la rotaci�n al objeto
                 transform.rotation = targetRotation;
+                agenteA.destination = playerFollow.position;
+                animacionA.SetFloat("AliadoWalkVelocity", agenteA.speed);
+
             }
             else
             {
+                agenteA.destination = transform.position;
+                animacionA.SetFloat("AliadoWalkVelocity", 0);
                 correr = Vector3.zero;
             }
             //animacionA.SetFloat("AliadoWalkVelocity", correr.magnitude * speedAliado);
@@ -109,30 +136,22 @@ public class Aliado : MonoBehaviour
         {
             // Calcula la distancia entre los dos objetos
             float distanceEnemy = Vector3.Distance(transform.position, objetivo.transform.position);
-            if (distanceEnemy > stopDistanceEnemy) 
+            if (distanceEnemy > stopDistanceEnemy)
             {
-                direccionEnemy = (objetivo.transform.position - transform.position).normalized;
-                transform.position += direccionEnemy * speedAliado * Time.deltaTime;
-                correr = direccionEnemy;
-                
+                agenteA.destination = objetivo.transform.position;
+                //direccionEnemy = (objeto.transform.position - transform.position).normalized;
+                //transform.position += direccionEnemy * speedEnemy * Time.deltaTime;
+                //correr = direccionEnemy;
+                animacionA.SetFloat("AliadoWalkVelocity", agenteA.speed);
             }
             else
             {
-                correr = Vector3.zero;
+                agenteA.destination = transform.position;
+                //correr = Vector3.zero;
                 animacionA.SetTrigger("atacar");
                 //atacarEnemigo();
             }
             transform.LookAt(objetivo.transform);
-            /*/ Calcula la rotaci�n sin la rotaci�n en el eje X
-            Quaternion targetRotation = Quaternion.LookRotation(direccionEnemy);
-            targetRotation.eulerAngles = new Vector3(0, targetRotation.eulerAngles.y, 0);
-
-            // Aplica la rotaci�n al objeto
-            transform.rotation = targetRotation;*/
-            //animacionA.SetFloat("AliadoWalkVelocity", correr.magnitude * speedAliado);
-
-            // Aqu� puedes a�adir tu l�gica de ataque al objetivo
-            // ...
 
             return; // Salir de la funci�n para evitar la detecci�n de nuevos objetivos
         }
@@ -143,7 +162,7 @@ public class Aliado : MonoBehaviour
             if (collider.CompareTag("Enemigo"))
             {
                 enemigoDetectado = true;
-                // Establecer el primer objeto con el tag "Enemy" como objetivo
+                // Establecer el primer objeto con el tag "Player" como objetivo
                 objetivo = collider.gameObject;
                 break;
             }
@@ -153,7 +172,7 @@ public class Aliado : MonoBehaviour
             }
         }
     }
-    
+
 
     private void OnTriggerEnter(Collider other)
     {
