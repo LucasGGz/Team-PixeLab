@@ -22,27 +22,42 @@ public class Aliado : MonoBehaviour
     private GameObject objetivo;
 
     public ThirdPersonMovement playerScript;
+
+    public int hpAliado;
+    public int danioEnemigo;
+    public BarraVida barraVida;
+    //public int danio;
+
+    private bool muerto;
     // Start is called before the first frame update
     void Start()
     {
         animacionA = GetComponent<Animator>();
+        muerto = false;
+        barraVida.vidaMax = hpAliado;               //asigna el hp del player a una variable del script BarraVidaBehaviour
+        barraVida.vidaActual = hpAliado;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!enemigoDetectado && playerScript.aliadoSeguir)
+        if (!muerto)
         {
-            seguirPlayer();
-        }
+            if (!enemigoDetectado && playerScript.aliadoSeguir)
+            {
+                seguirPlayer();
+            }
 
-        if (!playerScript.aliadoSeguir)
-        {
-            correr = Vector3.zero;
-        }
+            if (!playerScript.aliadoSeguir)
+            {
+                correr = Vector3.zero;
+            }
 
-        buscarEnemigos();
-        animacionA.SetFloat("AliadoWalkVelocity", correr.magnitude * speedAliado);
+            buscarEnemigos();
+            animacionA.SetFloat("AliadoWalkVelocity", correr.magnitude * speedAliado);
+        }
+        
+       
     }
 
     public void seguirPlayer()
@@ -130,5 +145,38 @@ public class Aliado : MonoBehaviour
                 enemigoDetectado = false;
             }
         }
+    }
+    
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!muerto)
+        {
+            if (other.gameObject.tag == "ataqueEnemy")
+            {
+                hpAliado -= danioEnemigo;//disminuye el hp del player
+                barraVida.vidaActual = hpAliado;//se asigna el hp Actual a una variable del script BarraVidaBehaviour
+            }
+            if (hpAliado <= 0)
+            {
+                animacionA.SetTrigger("muerto");//esta animación se llama al cambiar la variable de tipo Trigger "estoyMuerto" que esta en el animator del Player
+                muerto = true;          //cambia el estado de muerto a true
+            }
+        }
+        /*if (other.gameObject.tag == "Finish")
+        {
+            hpPlayer -= danio;//disminuye el hp del player
+            barraVida.vidaActual = hpPlayer;//se asigna el hp Actual a una variable del script BarraVidaBehaviour
+            if (!muerto)
+            {
+                transform.position = new Vector3(62f, 62f, 42f);//mueve al player a una posicion
+            }
+
+        }*/
+
+    }
+    public void DestruirAliado()
+    {
+        Destroy(gameObject);
     }
 }

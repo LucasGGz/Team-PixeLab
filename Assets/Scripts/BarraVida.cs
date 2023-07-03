@@ -11,13 +11,17 @@ public class BarraVida : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        vidaActual = vidaMax;
     }
 
     // Update is called once per frame
     void Update()
     {
         ActualizarBarra();
+        //if (vidaActual <= 0)
+        //{
+        //    gameObject.SetActive(false);
+        //}
     }
     public void ActualizarBarra()
     {
