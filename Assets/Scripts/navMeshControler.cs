@@ -24,6 +24,9 @@ public class navMeshControler : MonoBehaviour
     private float speedEnemy;
 
     private GameObject objeto;
+
+    public GameObject arma;
+    public BoxCollider armaCollider;
     // Start is called before the first frame update
     void Start()
     {
@@ -132,5 +135,29 @@ public class navMeshControler : MonoBehaviour
     public void DestruirEnemigo()
     {
         Destroy(gameObject);
+    }
+
+    public void DesactivarColliderArmas()
+    {
+        if (armaCollider != null)
+        {
+            armaCollider.enabled = false;
+        }
+        //punioBoxCollider.enabled = false;
+    }
+
+    //Activa los colliders del puño y de la espada
+    public void ActivarColliderArmas()
+    {
+        
+         if (armaCollider != null)
+            {
+                armaCollider.enabled = true;
+            }
+        //else
+        //{
+        //    punioBoxCollider.enabled = true;
+        //}
+
     }
 }

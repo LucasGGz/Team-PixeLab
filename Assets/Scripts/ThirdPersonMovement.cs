@@ -49,7 +49,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     public int hpPlayer;
     public int danioEnemigo;
-    //public BarraVidaBehaviour barraVida;
+    public BarraVida barraVida;
     public int danio;
 
     public bool aliadoSeguir;
@@ -71,8 +71,8 @@ public class ThirdPersonMovement : MonoBehaviour
         muerto = false;
         aliadoSeguir = true;
         invetario = GetComponent<Inventario>();
-        //barraVida.vidaMax = hpPlayer;               //asigna el hp del player a una variable del script BarraVidaBehaviour
-        //barraVida.vidaActual = hpPlayer;            //asigna el hp del player a una variable del script BarraVidaBehaviour
+        barraVida.vidaMax = hpPlayer;               //asigna el hp del player a una variable del script BarraVidaBehaviour
+        barraVida.vidaActual = hpPlayer;            //asigna el hp del player a una variable del script BarraVidaBehaviour
 
     }
 
@@ -394,16 +394,16 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        /*if (!muerto)
+        if (!muerto)
         {
-            if (other.gameObject.tag == "leftImpacto")
+            if (other.gameObject.tag == "ataqueEnemy")
             {
                 hpPlayer -= danioEnemigo;//disminuye el hp del player
                 barraVida.vidaActual = hpPlayer;//se asigna el hp Actual a una variable del script BarraVidaBehaviour
             }
             if (hpPlayer <= 0)
             {
-                animacion.SetTrigger("estoyMuerto");//esta animación se llama al cambiar la variable de tipo Trigger "estoyMuerto" que esta en el animator del Player
+                animacion.SetTrigger("muerto");//esta animación se llama al cambiar la variable de tipo Trigger "estoyMuerto" que esta en el animator del Player
                 muerto = true;          //cambia el estado de muerto a true
             }
         }
