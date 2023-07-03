@@ -45,6 +45,7 @@ public class ThirdPersonMovement : MonoBehaviour
     public float impulsoGolpe = 10f;
     public GameObject efectoAura;
     public GameObject efectoCura;
+    public GameObject efectoCrear;
 
     public int hpPlayer;
     public int danioEnemigo;
@@ -57,7 +58,7 @@ public class ThirdPersonMovement : MonoBehaviour
     public GameObject Ballesta;
     public Transform puntoCentral;
 
-
+    private Inventario invetario;
 
     // Start is called before the first frame update
     void Start()
@@ -69,6 +70,7 @@ public class ThirdPersonMovement : MonoBehaviour
         puedoDarClick = true;
         muerto = false;
         aliadoSeguir = true;
+        invetario = GetComponent<Inventario>();
         //barraVida.vidaMax = hpPlayer;               //asigna el hp del player a una variable del script BarraVidaBehaviour
         //barraVida.vidaActual = hpPlayer;            //asigna el hp del player a una variable del script BarraVidaBehaviour
 
@@ -210,15 +212,18 @@ public class ThirdPersonMovement : MonoBehaviour
     }
     public void Atacar()
     {
-        if (Input.GetKeyDown(KeyCode.E) && !isJump)
+        if (Input.GetKeyDown(KeyCode.E) && !isJump && invetario.cantMejora >=1)
         {
             animacion.SetTrigger("powerUp");
             atacando = true;
+            invetario.cantMejora--;
+            invetario.mRealizada++;
             Instantiate(efectoAura, controller.transform.position, controller.transform.rotation);
-        }else if (Input.GetKeyDown(KeyCode.Q) && !isJump)
+        }else if (Input.GetKeyDown(KeyCode.Q) && !isJump && invetario.cantPan >=1)
         {
             animacion.SetTrigger("curar");
             atacando = true;
+            invetario.cantPan--;
             Instantiate(efectoCura, controller.transform.position, controller.transform.rotation);
         }
         else if (Input.GetKeyDown(KeyCode.P) && !isJump)
@@ -235,9 +240,14 @@ public class ThirdPersonMovement : MonoBehaviour
                 aliadoSeguir = true;
             }
         }
-        if (Input.GetKeyDown(KeyCode.U) && !isJump)
+        if (Input.GetKeyDown(KeyCode.U) && !isJump && invetario.cantBallestas >= 1)
         {
-            Instantiate(Ballesta, puntoCentral.transform.position, puntoCentral.transform.rotation);
+            invetario.cantBallestas--;
+            invetario.BallestasDes++;
+            animacion.SetTrigger("crear");
+            atacando = true;
+            Instantiate(efectoCrear, controller.transform.position, controller.transform.rotation);
+            //Instantiate(Ballesta, puntoCentral.transform.position, puntoCentral.transform.rotation);
         }
         if (conArma && floorDetected)
         {
@@ -375,6 +385,11 @@ public class ThirdPersonMovement : MonoBehaviour
     public void DejaDeAvanzar()
     {
         avanza = false;
+    }
+
+    public void InstanciarBallesta()
+    {
+        Instantiate(Ballesta, puntoCentral.transform.position, puntoCentral.transform.rotation);
     }
 
     private void OnTriggerEnter(Collider other)
