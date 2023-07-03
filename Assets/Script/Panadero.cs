@@ -5,7 +5,12 @@ public class Panadero : MonoBehaviour
     public int costoPan = 20;
 
     private Inventario inventario;
+    private SoundManager soundManager;
 
+    private void Awake()
+    {
+        soundManager = FindObjectOfType<SoundManager>();
+    }
     private void Start()
     {
         inventario = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventario>();
@@ -18,6 +23,7 @@ public class Panadero : MonoBehaviour
             if (Input.GetKey(KeyCode.F) && PuedeComprarPan())
             {
                 ComprarPan();
+                soundManager.SeleccionAudio(5, 0.5f);
             }
         }
     }

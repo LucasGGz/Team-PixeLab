@@ -9,9 +9,14 @@ public class Ingeniero : MonoBehaviour
     public int costoMadera = 10;
     public int costoPiedra = 6;
     public int costoHierro = 5;
-
+    private SoundManager soundManager;
     private bool puedeComprar = true; 
     private float tiempoUltimaCompra;
+
+    private void Awake()
+    {
+        soundManager = FindObjectOfType<SoundManager>();
+    }
 
     void Start()
     {
@@ -32,6 +37,7 @@ public class Ingeniero : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F) && puedeComprar && PuedeComprarBallesta())
             {
+                soundManager.SeleccionAudio(5, 0.5f);
                 ComprarBallesta();
                 StartCoroutine(EsperarTiempoCompra());
             }

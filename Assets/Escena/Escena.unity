@@ -1037,7 +1037,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6861321538633222441, guid: ccafb49f934963c4ca737fa911139799, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6861321538633222441, guid: ccafb49f934963c4ca737fa911139799, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1330,7 +1330,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1294409791077706958, guid: 79251313ec794c045b75498175f9e107, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1294409791077706958, guid: 79251313ec794c045b75498175f9e107, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2104,11 +2104,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3197728299693840564, guid: 00e6e78bd5c908140bdb6e25cbf72910, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000017088176
+      value: -0.00000001708818
       objectReference: {fileID: 0}
     - target: {fileID: 3197728299693840564, guid: 00e6e78bd5c908140bdb6e25cbf72910, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000020133915
+      value: 0.000000002013392
       objectReference: {fileID: 0}
     - target: {fileID: 3206156279882107706, guid: 00e6e78bd5c908140bdb6e25cbf72910, type: 3}
       propertyPath: m_BindingMode
@@ -2676,7 +2676,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!20 &1050322157 stripped
 Camera:
@@ -6773,13 +6773,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7466200029062486179}
-  m_LocalRotation: {x: 0.117014244, y: 0.00000003417636, z: -0.000000004026784, w: 0.99313027}
+  m_LocalRotation: {x: 0.117014244, y: -0.00000003417636, z: 0.000000004026784, w: 0.99313027}
   m_LocalPosition: {x: 185.51, y: 48.68, z: 176.26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 12.647, y: 0, z: 0}
 --- !u!1 &178507452630938007
 GameObject:
@@ -7551,7 +7551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 8630130680812555035}
-  speed: 6
+  speed: 10
   mainCamera: {fileID: 7385551196539408441}
   gravity: 18
   fallVelocity: 0

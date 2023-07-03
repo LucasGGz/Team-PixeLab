@@ -13,6 +13,12 @@ public class Herrero : MonoBehaviour
     private int costoMadera = 6;
     private bool puedeComprar = true; 
     private float tiempoUltimaCompra;
+    private SoundManager soundManager;
+
+    private void Awake()
+    {
+        soundManager = FindObjectOfType<SoundManager>();
+    }
 
     private void Start()
     {
@@ -25,6 +31,7 @@ public class Herrero : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F) && puedeComprar && PuedeComprarMejora())
             {
+                soundManager.SeleccionAudio(5, 0.5f);
                 ComprarMejora();
                 StartCoroutine(EsperarTiempoCompra());
             }

@@ -448,7 +448,7 @@ public class ThirdPersonMovement : MonoBehaviour
     }
     private void vida()
     {
-        soundManager.SeleccionAudio(8, 0.5f);
+        soundManager.SeleccionAudio(4, 0.5f);
     }
     private void crear()
     {

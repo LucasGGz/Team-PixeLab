@@ -8,7 +8,7 @@ public class playAudioMusic : MonoBehaviour
     private void Awake()
     {
         audioSource.Play();
-        audioSource.volume = 0.3f;
+        audioSource.volume = 0.2f;
     }
 
     void Start()
