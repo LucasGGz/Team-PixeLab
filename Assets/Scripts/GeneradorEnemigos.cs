@@ -5,9 +5,9 @@ using UnityEngine;
 public class GeneradorEnemigos : MonoBehaviour
 {
     public GameObject enemigoPrefab;
-    public int cantidadEnemigosHorda1 = 10;
-    public int cantidadEnemigosHorda2 = 15;
-    public int cantidadEnemigosHorda3 = 20;
+    public int cantidadEnemigosHorda1 = 1;
+    public int cantidadEnemigosHorda2 = 2;
+    public int cantidadEnemigosHorda3 = 3;
     public float tiempoHorda1 = 30f;
     public float tiempoHorda2 = 30f;
     public float tiempoHorda3 = 30f;
